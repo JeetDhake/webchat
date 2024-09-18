@@ -1,0 +1,161 @@
+@import url();
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #f7f7f7;
+}
+.wrapper{
+    background: #fff;
+    width: 450px;
+    border-radius: 16px;
+    box-shadow: 0 0 58px 0 rgba(0,0,0,0.1), 0 32px 64px -48px rgba(0,0,0,0.5);
+}
+
+.signup{
+    padding: 25px 30px;
+
+}
+.signup header{
+    font-size: 25px;
+    font-weight: 600;
+    border-bottom: 1px solid #e6e6e6;
+}
+.signup form{
+    margin: 20px 0;
+    
+}
+
+.signup form .user-detail .f{
+    display: flex;
+    
+}
+.signup form .field:first-child{
+    margin-right: 2px;
+}
+.signup form .field:last-child{
+    margin-left: 2px;
+}
+.signup form .error{
+    color: #0053ee;
+    background: #d5e9ff;
+    padding: 8px 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #67b0ff;
+    opacity: 0;
+}
+.signup form .error.active{
+    opacity: 1;
+}
+
+.signup form .field{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    position: relative;
+}
+.signup form .field input{
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    margin: 1px;
+}
+.signup form .img input{
+    font-size: 16px;
+    
+}
+.signup form .btn input{
+    margin-top: 8px;
+    height: 42px;
+    border: 1px solid #333;
+    font-size: 17px;
+    font-weight: 500;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.signup form .btn input:hover{
+    border: 1px solid #333;
+    color: #333;
+    background: rgb(255, 255, 255);
+}
+.signup form .field i{
+    position: absolute;
+    right: 15px;
+    color: #333;
+    top: 65%;
+    transform:translateY(-50%);
+    cursor: pointer;
+}
+.signup form .field i.active::before{
+    color: #333;
+    content: "\f070";
+}
+
+.signup .link{
+    text-align: center;
+    margin: 5px 0;
+    font-size: 17px;
+}
+.signup .link a{
+    color: #333;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 2px;
+}
+.signup .link a:hover{
+    color: #333;
+    border: 1px solid #333;
+    
+    
+}
+::-webkit-file-upload-button{
+    border: 1px solid #333;
+    background-color: #fff;
+    color: #555;
+    border-radius: 3px;
+    
+}
+
+#drop{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    margin: 1px;
+}
+#img-view{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+}
+
+#img-view p{
+    color: #555;
+}
