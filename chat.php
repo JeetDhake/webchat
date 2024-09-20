@@ -10,6 +10,7 @@ if (!isset($_SESSION['unique_id'])) {
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,21 +24,22 @@ if (!isset($_SESSION['unique_id'])) {
 
     <div class="wrapper">
         <section class="chat-area">
+
             <header>
                 <?php
                 include_once "config.php";
                 $user_id = mysqli_real_escape_string($conn, $_GET['user_id']);
                 $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$user_id}");
                 if (mysqli_num_rows($sql) > 0) {
-                    $row = mysqli_fetch_assoc($sql);
+                    $rowx = mysqli_fetch_assoc($sql);
                 }
                 ?>
 
                 <a href="users.php" class="back"><i class="fas fa-arrow-left"></i></a>
-                <img src="img/<?php echo $row['img']; ?>" alt="">
+                <img src="img/<?php echo $rowx['img']; ?>" class="imgx" alt="">
                 <div class="detail">
-                    <span><?php echo $row['fname'] . " " . $row['lname'] ?></span>
-                    <p><?php echo $row['status']; ?></p>
+                    <span><?php echo $rowx['fname'] . " " . $rowx['lname'] ?></span>
+                    <p><?php echo $rowx['status']; ?></p>
                 </div>
 
             </header>
@@ -45,8 +47,6 @@ if (!isset($_SESSION['unique_id'])) {
             <div class="chat-box">
 
             </div>
-
-
 
             <div class="option">
                 <div class="icon" onclick="upload_from('docf')">
@@ -63,7 +63,7 @@ if (!isset($_SESSION['unique_id'])) {
                 </div>
             </div>
 
-            <form action="#" class="typing-area" autocomplete="off">
+            <form action="" class="typing-area" autocomplete="off">
                 <input type="text" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
                 <input type="text" name="outgoing_id" value="<?php echo $_SESSION['unique_id']; ?>" hidden>
 
@@ -73,11 +73,21 @@ if (!isset($_SESSION['unique_id'])) {
 
             </form>
 
-
         </section>
     </div>
+
+    <div class="player" id="player">
+        <div class="hdr" onclick="clsply()"><i class="fa-solid fa-xmark"></i></div>
+        <div class="yer" id="yer">
+
+        </div>
+    </div>
+
+
     <div class="abs" id="imgf">
-        <form action="" enctype="multipart/form-data">
+        <form action="" class="sub1" enctype="multipart/form-data">
+            <input type="text" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
+            <input type="text" name="outgoing_id" value="<?php echo $_SESSION['unique_id']; ?>" hidden>
             <div class="field img">
                 <label for="">Image</label>
                 <label for="img" id="drop0">
@@ -87,17 +97,19 @@ if (!isset($_SESSION['unique_id'])) {
 
                         <i class="fa-solid fa-cloud-arrow-up"></i>
                         <p>Drag and Drop<br>click here to Upload File</p>
+                        <span>max: 50mb</span>
                     </div>
                 </label>
             </div>
-            <div class="field btn">
-                <input type="submit" value="Upload File" name="" id="">
+            <div class="field btnx">
+                <button class="imgbtn">Upload File</button>
             </div>
         </form>
     </div>
     <div class="abs" id="audf">
-        <form action="" enctype="multipart/form-data">
-
+        <form action="" class="sub2" enctype="multipart/form-data">
+            <input type="text" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
+            <input type="text" name="outgoing_id" value="<?php echo $_SESSION['unique_id']; ?>" hidden>
             <div class="field img">
                 <label for="">Audio</label>
                 <label for="aud" id="drop1">
@@ -107,16 +119,19 @@ if (!isset($_SESSION['unique_id'])) {
 
                         <i class="fa-solid fa-cloud-arrow-up"></i>
                         <p>Drag and Drop<br>click here to Upload File</p>
+                        <span>max: 50mb</span>
                     </div>
                 </label>
             </div>
-            <div class="field btn">
-                <input type="submit" value="Upload File" name="" id="">
+            <div class="field btnx">
+                <button class="audbtn">Upload File</button>
             </div>
         </form>
     </div>
     <div class="abs" id="vidf">
-        <form action="" enctype="multipart/form-data">
+        <form action="" class="sub3" enctype="multipart/form-data">
+            <input type="text" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
+            <input type="text" name="outgoing_id" value="<?php echo $_SESSION['unique_id']; ?>" hidden>
             <div class="field img">
                 <label for="">Video</label>
                 <label for="vid" id="drop2">
@@ -126,16 +141,19 @@ if (!isset($_SESSION['unique_id'])) {
 
                         <i class="fa-solid fa-cloud-arrow-up"></i>
                         <p>Drag and Drop<br>click here to Upload File</p>
+                        <span>max: 50mb</span>
                     </div>
                 </label>
             </div>
-            <div class="field btn">
-                <input type="submit" value="Upload File" name="" id="">
+            <div class="field btnx">
+                <button class="vidbtn">Upload File</button>
             </div>
         </form>
     </div>
     <div class="abs" id="docf">
-        <form action="" enctype="multipart/form-data">
+        <form action="" class="sub4" enctype="multipart/form-data">
+            <input type="text" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
+            <input type="text" name="outgoing_id" value="<?php echo $_SESSION['unique_id']; ?>" hidden>
             <div class="field img">
                 <label for="">Document</label>
                 <label for="doc" id="drop3">
@@ -145,16 +163,18 @@ if (!isset($_SESSION['unique_id'])) {
 
                         <i class="fa-solid fa-cloud-arrow-up"></i>
                         <p>Drag and Drop<br>click here to Upload File</p>
+                        <p>max: 50mb</p>
                     </div>
                 </label>
             </div>
-            <div class="field btn">
-                <input type="submit" value="Upload File" name="" id="">
+            <div class="field btnx">
+                <button class="docbtn">Upload File</button>
             </div>
         </form>
     </div>
     <script src="chat.js"></script>
     <script src="upload.js"></script>
+    <script src="player.js"></script>
 </body>
 
 </html>

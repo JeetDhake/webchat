@@ -19,7 +19,12 @@ body{
     border-radius: 16px;
     box-shadow: 0 0 58px 0 rgba(0,0,0,0.1), 0 32px 64px -48px rgba(0,0,0,0.5);
 }
-
+.shr-img{
+    height: 120px;
+    width: 120px;
+    border-radius: 5px;
+    padding: 2px;
+}
 
 .users{
     padding: 25px 30px;
@@ -33,7 +38,7 @@ body{
     border-bottom: 1px solid #e6e6e6;
     padding-bottom: 20px;
 }
-.wrapper img{
+.wrapper .imgx{
     object-fit: cover;
     border-radius: 50%;
 }
@@ -41,7 +46,7 @@ body{
     display: flex;
 align-items: center;
 }
-.users header .content img{
+.users header .content .imgx{
     height: 50px;
     width: 50px;
 }
@@ -176,7 +181,7 @@ align-items: center;
     margin-left: auto;
     max-width: calc(100% - 130px);
 }
-.outgoing .detail p{
+.outgoing .detail p, .shr-img{
     background: #333;
     color: #fff;
     border-radius: 18px 18px 0 18px;
@@ -185,7 +190,7 @@ align-items: center;
     display: flex;
     align-items: flex-end;
 }
-.chat-box .incoming img{
+.chat-box .incoming .imgx{
     height: 35px;
     width: 35px;
 }
@@ -194,10 +199,11 @@ align-items: center;
     margin-right: auto;
     max-width: calc(100% - 130px);
 }
-.incoming .detail p{
+.incoming .detail p, .shr-img{
     background: #fff;
     color: #333;
     border-radius: 18px 18px 18px 0;
+    border: 1px solid #ccc;
 }
 .chat-box::-webkit-scrollbar{
     width: 0px;
@@ -308,7 +314,7 @@ align-items: center;
 #img-view,#img-view1,#img-view2,#img-view3 p{
     color: #555;
 }
-.btn input{
+.btnx input, .btnx button{
     margin: 8px;
     height: 26px;
     border: 1px solid #333;
@@ -319,7 +325,73 @@ align-items: center;
     border-radius: 5px;
     padding: 5px;
 }
-.btn input:hover{
+.btnx input:hover{
     color: #333;
     background: rgb(255, 255, 255);
+}
+.document{
+    background: #ccc;
+    height: 50px;
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+.document a{
+    text-decoration: none;
+    color: #000;
+}
+.controls{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #e6e6e6;
+    padding: 5px;
+    border-radius: 5px;
+    width: 200px;
+}
+.barx{
+    background: #555;
+    height: 5px;
+    width: 20px;
+}
+.vidbx{
+    height: 100px;
+    width: 200px;
+    background: #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.cntr{
+    padding: 20px;
+}
+.tols{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.player{
+    position: fixed;
+    background: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0px 0px 10px 3px #0002;
+    height: 150px;
+    width: 350px;
+}
+.yer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
